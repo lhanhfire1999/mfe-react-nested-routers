@@ -1,5 +1,8 @@
 import React from 'react'
-import { createGenerateClassName, StylesProvider } from '@material-ui/core'
+import {
+  StylesProvider,
+  createGenerateClassName,
+} from '@material-ui/core/styles'
 import { BrowserRouter } from 'react-router-dom'
 import { Header, MarketingApp } from '../../components'
 
@@ -9,12 +12,12 @@ const generateClassName = createGenerateClassName({
 
 const ContainerApp = () => {
   return (
-    <StylesProvider generateClassName={generateClassName}>
-      <BrowserRouter>
+    <BrowserRouter>
+      <StylesProvider generateClassName={generateClassName}>
         <Header signedIn={null} onSignOut={null} />
         <MarketingApp />
-      </BrowserRouter>
-    </StylesProvider>
+      </StylesProvider>
+    </BrowserRouter>
   )
 }
 
