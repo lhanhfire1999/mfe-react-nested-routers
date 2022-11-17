@@ -1,16 +1,20 @@
 import React from 'react'
-import { Header } from '../../components'
-import MarketingApp from '../MarketingApp'
+import { createGenerateClassName, StylesProvider } from '@material-ui/core'
 import { BrowserRouter } from 'react-router-dom'
+import { Header, MarketingApp } from '../../components'
+
+const generateClassName = createGenerateClassName({
+  productionPrefix: 'co',
+})
 
 const ContainerApp = () => {
   return (
-    <BrowserRouter>
-      <div>
+    <StylesProvider generateClassName={generateClassName}>
+      <BrowserRouter>
         <Header signedIn={null} onSignOut={null} />
         <MarketingApp />
-      </div>
-    </BrowserRouter>
+      </BrowserRouter>
+    </StylesProvider>
   )
 }
 

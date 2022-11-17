@@ -1,8 +1,14 @@
 import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { StylesProvider } from '@material-ui/core/styles'
-
+import {
+  StylesProvider,
+  createGenerateClassName,
+} from '@material-ui/core/styles'
 import { Landing, Pricing } from './pages'
+
+const generateClassName = createGenerateClassName({
+  productionPrefix: 'ma',
+})
 
 const router = createBrowserRouter([
   {
@@ -17,7 +23,7 @@ const router = createBrowserRouter([
 
 const App = () => {
   return (
-    <StylesProvider>
+    <StylesProvider generateClassName={generateClassName}>
       <RouterProvider router={router} />
     </StylesProvider>
   )
