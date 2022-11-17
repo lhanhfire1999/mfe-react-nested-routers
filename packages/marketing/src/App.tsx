@@ -3,44 +3,39 @@ import {
   StylesProvider,
   createGenerateClassName,
 } from '@material-ui/core/styles'
-import {
-  BrowserRouter,
-  createBrowserRouter,
-  Route,
-  RouterProvider,
-  Routes,
-} from 'react-router-dom'
-
+import { Route, BrowserRouter, Routes } from 'react-router-dom'
 import { Landing, Pricing } from './pages'
 
 const generateClassName = createGenerateClassName({
   productionPrefix: 'ma',
 })
 
-// const router = createBrowserRouter([
-//   {
-//     path: '/',
-//     element: <Landing />,
-//   },
-//   {
-//     path: 'pricing',
-//     element: <Pricing />,
-//   },
-// ])
+// // const router = createBrowserRouter([
+// //   {
+// //     path: '/',
+// //     element: <Landing />,
+// //   },
+// //   {
+// //     path: 'pricing',
+// //     element: <Pricing />,
+// //   },
+// // ])
 
 const App = () => {
   return (
-    <BrowserRouter>
-      {/* <StylesProvider generateClassName={generateClassName}>
-      <RouterProvider router={router} />
-    </StylesProvider> */}
+    <div>
       <StylesProvider generateClassName={generateClassName}>
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="pricing" element={<Pricing />} />
-        </Routes>
+        {/* <StylesProvider generateClassName={generateClassName}>
+          <RouterProvider router={router} />
+        </StylesProvider> */}
+        <BrowserRouter>
+          <Routes>
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/" element={<Landing />} />
+          </Routes>
+        </BrowserRouter>
       </StylesProvider>
-    </BrowserRouter>
+    </div>
   )
 }
 
