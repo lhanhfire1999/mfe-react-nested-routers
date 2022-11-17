@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { Header, MarketingApp } from '../../components'
 
 const generateClassName = createGenerateClassName({
-  productionPrefix: 'co',
+  seed: 'co',
 })
 
 const ContainerApp = () => {
