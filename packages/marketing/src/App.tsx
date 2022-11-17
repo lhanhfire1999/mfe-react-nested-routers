@@ -7,7 +7,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { Landing, Pricing } from './pages'
 
 const generateClassName = createGenerateClassName({
-  productionPrefix: 'ma',
+  seed: 'ma',
 })
 
 const router = createBrowserRouter([
