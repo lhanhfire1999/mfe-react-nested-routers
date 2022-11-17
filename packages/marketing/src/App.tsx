@@ -1,9 +1,7 @@
 import React from 'react'
+import { createGenerateClassName, StylesProvider } from '@material-ui/core'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import {
-  StylesProvider,
-  createGenerateClassName,
-} from '@material-ui/core/styles'
+
 import { Landing, Pricing } from './pages'
 
 const generateClassName = createGenerateClassName({
