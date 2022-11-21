@@ -24,7 +24,7 @@ const NavigationManager = () => {
 
   useEffect(() => {
     window.dispatchEvent(
-      new CustomEvent(`[marketing] navigated`, { detail: location.pathname })
+      new CustomEvent('[marketing] navigated', { detail: location.pathname })
     )
   }, [location])
 
