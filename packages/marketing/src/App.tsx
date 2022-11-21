@@ -1,27 +1,20 @@
-import React from 'react'
 import {
-  StylesProvider,
   createGenerateClassName,
+  StylesProvider,
 } from '@material-ui/core/styles'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import { Landing, Pricing } from './pages'
+import React from 'react'
+import { RouterProvider } from 'react-router-dom'
 
+import { RemixRouterProps } from './routing/router-factory'
+
+interface AppProps {
+  router: RemixRouterProps
+}
 const generateClassName = createGenerateClassName({
   seed: 'ma',
 })
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Landing />,
-  },
-  {
-    path: 'pricing',
-    element: <Pricing />,
-  },
-])
-
-const App = () => {
+const App: React.FC<AppProps> = ({ router }) => {
   return (
     <StylesProvider generateClassName={generateClassName}>
       <RouterProvider router={router} />
