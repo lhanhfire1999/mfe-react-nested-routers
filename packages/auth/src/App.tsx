@@ -10,8 +10,9 @@ import { RemixRouterProps } from './routing/router-factory'
 interface AppProps {
   router: RemixRouterProps
 }
+
 const generateClassName = createGenerateClassName({
-  seed: 'ma',
+  seed: 'au',
 })
 
 const App: React.FC<AppProps> = ({ router }) => {

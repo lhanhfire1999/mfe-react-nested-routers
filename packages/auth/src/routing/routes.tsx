@@ -1,17 +1,17 @@
 import React from 'react'
 import { RouteObject } from 'react-router-dom'
-import { NavigationManager } from '../components'
+import { NavigationManager, SignIn, SignUp } from '../components'
 
 export const routes: RouteObject[] = [
   {
-    path: '/',
+    path: '/auth',
     element: <NavigationManager />,
     children: [
-      // {
-      //   index: true,
-      //   element: <Landing />,
-      // },
-      // { path: 'pricing', element: <Pricing /> },
+      {
+        path: 'signin',
+        element: <SignIn onSignIn={() => null} />,
+      },
+      { path: 'signup', element: <SignUp onSignIn={() => null} /> },
     ],
   },
 ]
