@@ -3,8 +3,11 @@ import {
   createGenerateClassName,
   StylesProvider,
 } from '@material-ui/core/styles'
-import { RouterProvider } from 'react-router-dom'
-import { router } from './routing/Router'
+import { BrowserRouter, RouterProvider } from 'react-router-dom'
+
+import Progress from './components/Progress'
+import { Router } from './routing/Router'
+import Header from './components/Header'
 
 const generateClassName = createGenerateClassName({
   seed: 'co',
@@ -12,11 +15,14 @@ const generateClassName = createGenerateClassName({
 
 const App = () => {
   return (
-    <Suspense fallback={<div>Loading........</div>}>
-      <StylesProvider generateClassName={generateClassName}>
-        <RouterProvider router={router} />
-      </StylesProvider>
-    </Suspense>
+    <StylesProvider generateClassName={generateClassName}>
+      <BrowserRouter>
+        <Header signedIn={null} onSignOut={null} />
+        <Suspense fallback={<Progress />}>
+          <Router />
+        </Suspense>
+      </BrowserRouter>
+    </StylesProvider>
   )
 }
 
