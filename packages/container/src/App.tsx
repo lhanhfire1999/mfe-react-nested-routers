@@ -1,21 +1,23 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import {
   createGenerateClassName,
   StylesProvider,
 } from '@material-ui/core/styles'
 import { RouterProvider } from 'react-router-dom'
-import { router } from './routing/router'
+import { router } from './routing/Router'
 
 const generateClassName = createGenerateClassName({
   seed: 'co',
 })
 
-const ContainerApp = () => {
+const App = () => {
   return (
-    <StylesProvider generateClassName={generateClassName}>
-      <RouterProvider router={router} />
-    </StylesProvider>
+    <Suspense fallback={<div>Loading........</div>}>
+      <StylesProvider generateClassName={generateClassName}>
+        <RouterProvider router={router} />
+      </StylesProvider>
+    </Suspense>
   )
 }
 
-export default ContainerApp
+export default App

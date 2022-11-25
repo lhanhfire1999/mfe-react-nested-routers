@@ -1,18 +1,21 @@
-import React from 'react'
+import { lazy } from 'react'
 import { createBrowserRouter } from 'react-router-dom'
-import { AuthApp, Layout, MarketingApp } from '../components'
+
+const MarketingLazy = lazy(() => import('../components/MarketingApp'))
+const AuthLazy = lazy(() => import('../components/AuthApp'))
+const LayoutLazy = lazy(() => import('../components/Layout'))
 
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <Layout />,
+    element: <LayoutLazy />,
     children: [
       {
         index: true,
-        element: <MarketingApp />,
+        element: <MarketingLazy />,
       },
-      { path: '/pricing', element: <MarketingApp /> },
-      { path: 'auth/*', element: <AuthApp /> },
+      { path: '/pricing', element: <MarketingLazy /> },
+      { path: 'auth/*', element: <AuthLazy /> },
     ],
   },
 ])
