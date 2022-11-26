@@ -1,11 +1,18 @@
 import { mount as authMount } from 'auth/AuthApp'
 import React, { useEffect, useRef } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { useAuthenticationContext } from '../../contexts/AuthenticationContext'
 import { AUTH_PATHNAME_ROUTERS } from '../../routing/constants'
 
 const AuthApp = () => {
   const navigate = useNavigate()
   const location = useLocation()
+
+  const { setIsSignin } = useAuthenticationContext()
+
+  const onSignIn = () => {
+    setIsSignin((prev) => !prev)
+  }
 
   const authWrapperRef = useRef<HTMLDivElement>(null)
   const isFirstRef = useRef(true)
@@ -42,6 +49,7 @@ const AuthApp = () => {
       mountPoint: authWrapperRef?.current,
       strategy: 'memory',
       initialPathname: location.pathname,
+      onSignIn,
     })
     isFirstRef.current = false
   }, [location])

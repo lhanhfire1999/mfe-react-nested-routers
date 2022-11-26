@@ -7,8 +7,13 @@ interface MountProps extends RouterFactoryProps {
   mountPoint: Element
 }
 
-const mount = ({ mountPoint, strategy, initialPathname }: MountProps) => {
-  const router = routerFactory({ strategy, initialPathname })
+const mount = ({
+  mountPoint,
+  strategy,
+  initialPathname,
+  onSignIn,
+}: MountProps) => {
+  const router = routerFactory({ strategy, initialPathname, onSignIn })
   const root = createRoot(mountPoint)
   root.render(<App router={router} />)
 }
