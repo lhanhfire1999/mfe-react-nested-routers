@@ -1,4 +1,4 @@
-import React, { lazy, useState } from 'react'
+import React, { lazy } from 'react'
 import { useRoutes } from 'react-router-dom'
 
 import Layout from '../components/Layout'
@@ -6,7 +6,7 @@ import Layout from '../components/Layout'
 const MarketingLazy = lazy(() => import('../components/MarketingApp'))
 const AuthLazy = lazy(() => import('../components/AuthApp'))
 
-export const Router = () => {
+export const CustomRouter = () => {
   const routes = useRoutes([
     {
       path: '/',

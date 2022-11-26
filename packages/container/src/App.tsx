@@ -3,10 +3,10 @@ import {
   createGenerateClassName,
   StylesProvider,
 } from '@material-ui/core/styles'
-import { BrowserRouter, RouterProvider } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 
 import Progress from './components/Progress'
-import { Router } from './routing/Router'
+import { CustomRouter } from './routing/Router'
 import Header from './components/Header'
 import { AuthenticationContextProvider } from './contexts/AuthenticationContext'
 
@@ -21,7 +21,7 @@ const App = () => {
         <BrowserRouter>
           <Header />
           <Suspense fallback={<Progress />}>
-            <Router />
+            <CustomRouter />
           </Suspense>
         </BrowserRouter>
       </StylesProvider>
