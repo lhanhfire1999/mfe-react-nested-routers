@@ -6,9 +6,10 @@ import {
 import { BrowserRouter } from 'react-router-dom'
 
 import Progress from './components/Progress'
-import { CustomRouter } from './routing/Router'
+
 import Header from './components/Header'
 import { AuthenticationContextProvider } from './contexts/AuthenticationContext'
+import { CustomRouter } from './routing/router'
 
 const generateClassName = createGenerateClassName({
   seed: 'co',
