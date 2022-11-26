@@ -1,6 +1,6 @@
 import React from 'react'
 import { RouteObject } from 'react-router-dom'
-import { NavigationManager } from '../components'
+import { NavigationManager, NotFound } from '../components'
 import { Landing, Pricing } from '../pages'
 
 export const routes: RouteObject[] = [
@@ -14,5 +14,9 @@ export const routes: RouteObject[] = [
       },
       { path: 'pricing', element: <Pricing /> },
     ],
+  },
+  {
+    path: '*',
+    element: <NotFound />,
   },
 ]

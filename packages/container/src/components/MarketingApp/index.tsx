@@ -1,6 +1,7 @@
 import { mount as marketingMount } from 'marketing/MarketingApp'
 import React, { useEffect, useRef } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { MARKETING_PATHNAME_ROUTERS } from '../../routing/constants'
 
 const MarketingApp = () => {
   const navigate = useNavigate()
@@ -27,9 +28,13 @@ const MarketingApp = () => {
   }, [location])
 
   useEffect(() => {
-    window.dispatchEvent(
-      new CustomEvent(`[container] navigated`, { detail: location.pathname })
-    )
+    if (MARKETING_PATHNAME_ROUTERS.includes(location?.pathname))
+      window.dispatchEvent(
+        new CustomEvent(`[container] navigated`, {
+          detail: location.pathname,
+          cancelable: true,
+        })
+      )
   }, [location])
 
   useEffect(() => {
